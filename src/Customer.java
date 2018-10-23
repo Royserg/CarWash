@@ -6,6 +6,7 @@ public class Customer {
     private String email;
     private int password;
     private double washCardBalance;
+
     public Customer (String name, String carNumberPlate, String phoneNumber, String email, int password,double washCardBalance) {
         this.name = name;
         this.carNumberPlate = carNumberPlate;
