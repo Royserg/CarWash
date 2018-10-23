@@ -5,16 +5,25 @@ public class Customer {
     private String phoneNumber;
     private int password;
     private double washCardBalance;
-    private String[] options = {"Check Balance", "Top-up the Balance", "Wash Car"};
+    public boolean isAdmin = false;
 
+    public Customer() {}
 
-    public Customer() {};
-    public Customer (String name, String carNumberPlate, String phoneNumber, int password,double washCardBalance) {
+    public Customer (String name, String carNumberPlate, String phoneNumber, int password, double washCardBalance) {
         this.name = name;
         this.carNumberPlate = carNumberPlate;
         this.phoneNumber = phoneNumber;
         this.password = password;
         this.washCardBalance= washCardBalance;
+    }
+
+    public Customer (String name, String carNumberPlate, String phoneNumber, int password, double washCardBalance, boolean admin) {
+        this.name = name;
+        this.carNumberPlate = carNumberPlate;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.washCardBalance= washCardBalance;
+        this.isAdmin = admin;
     }
 
     public void chargeWashCardBalance(double amount) {
