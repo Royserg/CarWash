@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Date;
+
 import java.util.Scanner;
 
 public class Main {
@@ -19,9 +21,11 @@ public class Main {
         // populate ArrayList with data
         populateData();
 
+        currentCustomer = customers.get(4);
         // display main screen options
+        showUserScreen();
 //        showRegistrationScreen();
-        showLoginScreen();
+//        showLoginScreen();
 //        showMainScreen();
     }
 
@@ -33,9 +37,11 @@ public class Main {
         customers.add(new Customer("Sam", "SM7771", "+45 783", "9999", 2000, true));
         customers.add(new Customer("Anna", "AA2211", "+45 223", "9632", 1200, true));
         customers.add(new Customer("Mada", "MA6789", "+45 512","1234", 400, true));
+
+        statistics.add(new Statistic("standard", new Date()));
     }
 
-    /** Print Main screen available options */
+    /** Print Main screen with available options */
     private static void showMainScreen() {
         System.out.println("==== SupremeWash ====");
         System.out.println("1. Register a New User");
@@ -54,7 +60,7 @@ public class Main {
         } while (option < 1 || option > 2);
 
 
-        // consume nextLine that was created after collecting integer
+        // consume reminding line after collecting integer
         scanner.nextLine();
 
         if(option == 1) showRegistrationScreen();
@@ -80,7 +86,7 @@ public class Main {
         String password = scanner.nextLine();
 
         for (int i = 0; i < customers.size(); i++) {
-            if (username.equals(customers.get(i).getCarPlateNum())){
+            if (username.equals(customers.get(i).washCard.getCarPlateNum())){
                 if (password.equals(customers.get(i).getPassword())) {
                     // user Log in successfully
                     // save as current customer
@@ -146,6 +152,30 @@ public class Main {
                 continue;
             }
             System.out.println(i + ". " + options[i]);
+        }
+
+        System.out.print("Option: ");
+        // collect user input
+        int option;
+
+        do {
+            while (!scanner.hasNextInt()) {
+                System.out.print("Provide a number: ");
+                scanner.next();
+            }
+            option = scanner.nextInt();
+        } while (option < 0 || option > ( currentCustomer.isAdmin ? 4 : 3 ));
+
+        // consume reminding line after getting integer
+        scanner.nextLine();
+
+        switch(option) {
+            case 0:
+                showMainScreen();
+                break;
+            case 1:
+                System.out.println("Balance: " + currentCustomer.washCard.getBalance() + "dkk");
+                break;
         }
 
     }
