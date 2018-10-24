@@ -18,7 +18,8 @@ public class Main {
 
 
         // display main screen options
-        showMainScreen();
+        showLoginScreen();
+//        showMainScreen();
     }
 
 
@@ -58,16 +59,21 @@ public class Main {
     /** Print Login screen  */
     public static void showLoginScreen() {
         System.out.println("==== Login ====");
-
         // consume nextLine form int
         scanner.nextLine();
 
+        System.out.println("Type \"exit\" to open main page");
         System.out.print("Car plate Number: ");
-        String username = scanner.nextLine();
+        String username = scanner.nextLine().toUpperCase();
+
+        // Coming back to Main page scenario
+        if (username.equals("EXIT")) {
+            showMainScreen();
+            return;
+        }
+
         System.out.print("Password: ");
         int password = scanner.nextInt();
-
-//        System.out.println("username: " + username + "\npassword: " + password);
 
         for (int i = 0; i < customers.size(); i++) {
             if (username.equals(customers.get(i).getCarNumPlate())){
@@ -77,12 +83,11 @@ public class Main {
                     currentCustomer = customers.get(i);
                     // show user screen
                     showUserScreen();
-                    break;
+                } else {
+                    // wrong info provided
+                    System.out.println("=== Wrong username or password ===");
+                    showLoginScreen();
                 }
-            } else {
-                // wrong info provided
-                System.out.println("=== Wrong username or password ===");
-                showLoginScreen();
             }
         }
     }
