@@ -1,28 +1,29 @@
 public class Customer {
 
     private String name;
-    private String carNumberPlate;
+//    private String carNumberPlate;
     private String phoneNumber;
     private String password;
     private double washCardBalance;
     public boolean isAdmin = false;
 
+    private WashCard washCard;
+
     public Customer() {}
 
-    public Customer (String name, String carNumberPlate, String phoneNumber, String password, double washCardBalance) {
+    public Customer (String name, String carPlateNum, String phoneNumber, String password, double washCardBalance) {
         this.name = name;
-        this.carNumberPlate = carNumberPlate;
+//        this.carNumberPlate = carNumberPlate;
         this.phoneNumber = phoneNumber;
         this.password = password;
         this.washCardBalance= washCardBalance;
+
+        // create washCard object
+        washCard = new WashCard(carPlateNum);
     }
 
-    public Customer (String name, String carNumberPlate, String phoneNumber, String password, double washCardBalance, boolean admin) {
-        this.name = name;
-        this.carNumberPlate = carNumberPlate;
-        this.phoneNumber = phoneNumber;
-        this.password = password;
-        this.washCardBalance= washCardBalance;
+    public Customer (String name, String carPlateNum, String phoneNumber, String password, double washCardBalance, boolean admin) {
+        this(name, carPlateNum, phoneNumber, password, washCardBalance);
         this.isAdmin = admin;
     }
 
@@ -32,14 +33,9 @@ public class Customer {
         System.out.println("Balance: " + this.washCardBalance);
     }
 
-    public void washCar() {
-        // params: WashType type
-        System.out.println("Washing Car!");
-    }
-
     /* === getters === */
-    public String getCarNumPlate() {
-        return carNumberPlate;
+    public String getCarPlateNum() {
+        return washCard.getCarPlateNum();
     }
 
     public String getPassword() {

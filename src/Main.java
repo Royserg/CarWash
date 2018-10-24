@@ -1,11 +1,12 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
     // main array storing Customers
     public static ArrayList<Customer> customers = new ArrayList<>();
+    // ArrayList for Washes
+
     // create a Scanner object
     public static Scanner scanner = new Scanner(System.in);
     // holds logged in Customer
@@ -18,8 +19,8 @@ public class Main {
         populateData();
 
         // display main screen options
-        showRegistrationScreen();
-//        showLoginScreen();
+//        showRegistrationScreen();
+        showLoginScreen();
 //        showMainScreen();
     }
 
@@ -78,7 +79,7 @@ public class Main {
         String password = scanner.nextLine();
 
         for (int i = 0; i < customers.size(); i++) {
-            if (username.equals(customers.get(i).getCarNumPlate())){
+            if (username.equals(customers.get(i).getCarPlateNum())){
                 if (password.equals(customers.get(i).getPassword())) {
                     // user Log in successfully
                     // save as current customer
