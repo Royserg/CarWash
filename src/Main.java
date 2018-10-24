@@ -6,6 +6,7 @@ public class Main {
     // main array storing Customers
     public static ArrayList<Customer> customers = new ArrayList<>();
     // ArrayList for Washes
+    public static ArrayList<Statistic> statistics = new ArrayList<>();
 
     // create a Scanner object
     public static Scanner scanner = new Scanner(System.in);
@@ -53,7 +54,7 @@ public class Main {
         } while (option < 1 || option > 2);
 
 
-        // consume nextLine form int
+        // consume nextLine that was created after collecting integer
         scanner.nextLine();
 
         if(option == 1) showRegistrationScreen();
