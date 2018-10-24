@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
+    // main array storing Customers
     public static ArrayList<Customer> customers = new ArrayList<>();
     // create a Scanner object
     public static Scanner scanner = new Scanner(System.in);
@@ -15,6 +16,7 @@ public class Main {
         // populate ArrayList with data
         populateData();
 
+
         // display main screen options
         showMainScreen();
     }
@@ -22,7 +24,7 @@ public class Main {
 
     /** Method that populates program's ArrayList with dummy data */
     private static void populateData() {
-        customers.add(new Customer("Michael", "MC6969", "+45 231",1212, 100));
+        customers.add(new Customer("Michael", "MC6969", "+45 231",1212, 250));
         customers.add(new Customer("Jakub", "JA9991", "+45 123",0000, 600));
         customers.add(new Customer("Sam", "SM7771", "+45 783", 9999, 2000, true));
         customers.add(new Customer("Anna", "AA2211", "+45 223", 9632, 1200, true));
@@ -48,27 +50,41 @@ public class Main {
         } while (option < 1 || option > 2);
 
 
-        switch (option) {
-            case 1:
-                showRegistrationScreen();
-                break;
-            case 2:
-                showLoginScreen();
-                break;
-            default:
-                System.out.println("Can't understand you, MASTER");
-        }
+        if(option == 1) showRegistrationScreen();
+        else showLoginScreen();
+
     }
 
     /** Print Login screen  */
     public static void showLoginScreen() {
         System.out.println("==== Login ====");
-        // TODO:
-        // username:  ...
-        // password: ...
 
-        // fail, show loginScreenAgain
-        // success, showUserScreen();
+        // consume nextLine form int
+        scanner.nextLine();
+
+        System.out.print("Car plate Number: ");
+        String username = scanner.nextLine();
+        System.out.print("Password: ");
+        int password = scanner.nextInt();
+
+//        System.out.println("username: " + username + "\npassword: " + password);
+
+        for (int i = 0; i < customers.size(); i++) {
+            if (username.equals(customers.get(i).getCarNumPlate())){
+                if (password == customers.get(i).getPassword()) {
+                    // user Log in successfully
+                    // save as current customer
+                    currentCustomer = customers.get(i);
+                    // show user screen
+                    showUserScreen();
+                    break;
+                }
+            } else {
+                // wrong info provided
+                System.out.println("=== Wrong username or password ===");
+                showLoginScreen();
+            }
+        }
     }
 
     /** Print Registration screen */

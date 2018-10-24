@@ -37,5 +37,12 @@ public class Customer {
         System.out.println("Washing Car!");
     }
 
+    /* === getters === */
+    public String getCarNumPlate() {
+        return carNumberPlate;
+    }
 
+    public int getPassword() {
+        return password;
+    }
 }
