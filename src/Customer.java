@@ -3,13 +3,13 @@ public class Customer {
     private String name;
     private String carNumberPlate;
     private String phoneNumber;
-    private int password;
+    private String password;
     private double washCardBalance;
     public boolean isAdmin = false;
 
     public Customer() {}
 
-    public Customer (String name, String carNumberPlate, String phoneNumber, int password, double washCardBalance) {
+    public Customer (String name, String carNumberPlate, String phoneNumber, String password, double washCardBalance) {
         this.name = name;
         this.carNumberPlate = carNumberPlate;
         this.phoneNumber = phoneNumber;
@@ -17,7 +17,7 @@ public class Customer {
         this.washCardBalance= washCardBalance;
     }
 
-    public Customer (String name, String carNumberPlate, String phoneNumber, int password, double washCardBalance, boolean admin) {
+    public Customer (String name, String carNumberPlate, String phoneNumber, String password, double washCardBalance, boolean admin) {
         this.name = name;
         this.carNumberPlate = carNumberPlate;
         this.phoneNumber = phoneNumber;
@@ -42,7 +42,7 @@ public class Customer {
         return carNumberPlate;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 }
