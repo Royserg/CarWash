@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -17,8 +18,8 @@ public class Main {
         populateData();
 
         // display main screen options
-//        showRegistrationScreen();
-        showLoginScreen();
+        showRegistrationScreen();
+//        showLoginScreen();
 //        showMainScreen();
     }
 
@@ -100,18 +101,41 @@ public class Main {
 
     /** Print Registration screen */
     public static void showRegistrationScreen() {
+        double amount;
         System.out.println("==== Registration ====");
-        // TODO:
-        // name, cardPlateNum, phone, ...
+        String[] newCustomerInfo = {"Name: ", "Car Plate Number: ", "Mobile Number: ", "Choose your Password: "};
 
+        for (int i = 0; i < newCustomerInfo.length; i++) {
+            System.out.print(newCustomerInfo[i]);
+            newCustomerInfo[i] = scanner.nextLine();
+        }
 
+        System.out.print("Charge account with amount between DKK 200-1000: ");
 
+        do {
+            while(!scanner.hasNextDouble()) {
+                scanner.next();
+            }
+            amount = scanner.nextDouble();
 
+        } while (amount < 200 || amount > 1000);
+
+        System.out.println("=== Payment approved! ===");
+
+        // create a new Customer and add to the arrayList
+        Customer newCustomer = new Customer(newCustomerInfo[0], newCustomerInfo[1], newCustomerInfo[2], newCustomerInfo[3], amount);
+
+        System.out.println("=== Successfully registered ===");
+        // save new Customer into customers ArrayList
+        customers.add(newCustomer);
+
+        // Open main page
+        showMainScreen();
     }
 
     /** Print User screen */
     public static void showUserScreen() {
-        String[] options = {"Exit", "Check Balance", "Top-up Balance", "Wash Car", "Generate Statistics"};
+        String[] options = {"Exit", "Check Balance", "Top-up Balance", "Wash Car", "Generate Statistics "};
 
         System.out.println("==== Dashboard ====");
 
@@ -122,7 +146,6 @@ public class Main {
             System.out.println(i + ". " + options[i]);
         }
 
-        // TODO:
     }
 
 }
