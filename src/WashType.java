@@ -1,7 +1,6 @@
+
 public class WashType {
-
-    double economyPrice;
-    double standardPrice;
-    double deLuxePrice;
-
+      public static double economyPrice;
+      public static double standardPrice;
+      public static double deluxePrice;
 }
