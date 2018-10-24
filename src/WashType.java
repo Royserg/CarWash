@@ -1,4 +1,7 @@
 public class WashType {
-    double price;
-    String name ;
+
+    double economyPrice;
+    double standardPrice;
+    double deLuxePrice;
+
 }
