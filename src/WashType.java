@@ -5,6 +5,7 @@ public class WashType {
     public static int deluxePrice = 120;
 
     public static void showOptions() {
+        // TODO: showing prices with discount
         System.out.println("1. Standard - " + standardPrice + "dkk");
         System.out.println("2. Economy - " + economyPrice + "dkk");
         System.out.println("3. De Luxe - " + deluxePrice + "dkk");

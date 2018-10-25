@@ -7,28 +7,23 @@ import java.util.Scanner;
 public class Main {
 
     // main array storing Customers
-    public static ArrayList<Customer> customers = new ArrayList<>();
+    private static ArrayList<Customer> customers = new ArrayList<>();
     // ArrayList for Washes
-    public static ArrayList<Statistic> statistics = new ArrayList<>();
-
+    private static ArrayList<Statistic> statistics = new ArrayList<>();
     // create a Scanner object
-    public static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
     // holds logged in Customer
-    public static Customer currentCustomer;
+    private static Customer currentCustomer;
 
 
     // === main ===
     public static void main(String[] args) {
         // populate ArrayList with data
         populateData();
-
-        // display main screen options
-
-//        currentCustomer = customers.get(3);
-//        showUserScreen();
-//        showRegistrationScreen();
-//        showLoginScreen();
-        showMainScreen();
+        // show main screen
+//        showMainScreen();
+        currentCustomer = customers.get(1);
+        showUserScreen();
     }
 
 
@@ -58,7 +53,7 @@ public class Main {
     }
 
     /** Print Login screen  */
-    public static void showLoginScreen() {
+    private static void showLoginScreen() {
         System.out.println("==== Login ====");
 
         System.out.println("Type \"exit\" to open main page");
@@ -97,7 +92,7 @@ public class Main {
     }
 
     /** Print Registration screen */
-    public static void showRegistrationScreen() {
+    private static void showRegistrationScreen() {
         double amount;
         System.out.println("==== Registration ====");
         String[] newCustomerInfo = {"Name: ", "Car Plate Number: ", "Mobile Number: ", "Choose your Password: "};
@@ -123,7 +118,7 @@ public class Main {
     }
 
     /** Print User screen */
-    public static void showUserScreen() {
+    private static void showUserScreen() {
         String[] options = {"Exit", "Check Balance", "Top-up Balance", "Wash Car", "Generate Statistics "};
 
         System.out.println("==== Dashboard ====");
@@ -205,7 +200,7 @@ public class Main {
 
                 break;
             case 4:
-                // TODO: Generating statistic: aka pritning all stats to the console
+                // Generating statistic: aka pritning all stats to the console
                 System.out.println("=== Statistics ===");
                 System.out.println();
                 for (Statistic stat: statistics) {
@@ -217,7 +212,7 @@ public class Main {
                 String ownerDecision = scanner.nextLine();
 
                 if (ownerDecision.equals("y")) {
-                    System.out.println("==== Pritning Statistics ====");
+                    System.out.println("==== Printing Statistics ====");
                     System.out.println("==== Thank you! ====");
                 }
 
