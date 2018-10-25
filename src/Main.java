@@ -22,7 +22,7 @@ public class Main {
         populateData();
         // show main screen
 //        showMainScreen();
-        currentCustomer = customers.get(1);
+        currentCustomer = customers.get(3);
         showUserScreen();
     }
 
@@ -32,10 +32,10 @@ public class Main {
         customers.add(new Customer("Michael", "MC6969", "+45 231","1212", 250));
         customers.add(new Customer("Jakub", "JA9991", "+45 123","0000", 600));
         customers.add(new Customer("Sam", "SM7771", "+45 783", "9999", 2000, true));
-        customers.add(new Customer("Anna", "AA2211", "+45 223", "9632", 1200, true));
+        customers.add(new Customer("Anna", "AA2211", "+45 223", "9632", 200, true));
         customers.add(new Customer("Mada", "MA6789", "+45 512","1234", 400, true));
 
-        statistics.add(new Statistic("standard", new Date(), 150.0));
+        statistics.add(new Statistic("Standard", new Date(), 150.0));
     }
 
     /** Print Main screen with available options */
@@ -160,30 +160,33 @@ public class Main {
 
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int hourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
-                int price;
+                double price;
+                boolean isDiscount = ((dayOfWeek > 1 && dayOfWeek < 7) && hourOfDay < 14);
+                // store wash type prices
+                double[] prices = WashType.getPrices(isDiscount);
 
                 System.out.println("=== Wash Car ===");
 
                 // show wash car options
-                WashType.showOptions();
+                System.out.println("1. Economy: " + prices[0]);
+                System.out.println("2. Standard: " + prices[1]);
+                System.out.println("3. De Luxe: " + prices[2]);
 
+                // get user choice
                 int washOption = Helper.chooseOption(1, 3);
 
                 // get amount to pay
-                int initialPrice = WashType.getPrice(washOption);
-                // apply discount (standard or economy; monday-friday; before 14:00)
-                if ((washOption == 1 || washOption == 2) && (dayOfWeek > 1 && dayOfWeek < 7) && hourOfDay < 14 ) {
-                    initialPrice *= 0.8;
-                }
+                price = prices[washOption - 1];
+
                 // check if customer has enough money
-                if (currentCustomer.washCard.getBalance() < initialPrice) {
-                    System.out.println("=== Not sufficient funds ===");
+                if (currentCustomer.washCard.getBalance() < price) {
+                    System.out.println("=== Insufficient funds ===");
                     showUserScreen();
                 } else {
                     // reduce customer balance
-                    currentCustomer.washCard.changeBalance(-initialPrice);
+                    currentCustomer.washCard.changeBalance(-price);
                     // save wash into statistics
-                    Statistic stat = new Statistic(WashType.getName(washOption), today, initialPrice);
+                    Statistic stat = new Statistic(WashType.getName(washOption), today, price);
                     statistics.add(stat);
 
                     // print receipt
@@ -192,11 +195,15 @@ public class Main {
                     String decision = scanner.nextLine();
 
                     if (decision.equals("y")) {
-                        System.out.println("=== Your Receipt ===");
+                        System.out.println("=== Your Receipt =========");
                         System.out.println(stat);
+                        System.out.println("==============================");
                         System.out.println();
                     }
 
+                    System.out.println("=== Washu Washu - Car will be clean ===");
+                    System.out.println("===    Washu Washu Washu    ===");
+                    System.out.println("=== Car ready - sending SMS ===");
                     showUserScreen();
                 }
 
