@@ -17,8 +17,8 @@ public class WashCard {
     }
 
     // setters
-    public void setBalance(double newBalance) {
-        this.balance = newBalance;
+    public void changeBalance(double delta) {
+        this.balance += delta;
     }
 
 }

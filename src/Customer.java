@@ -11,10 +11,8 @@ public class Customer {
 
     public Customer (String name, String carPlateNum, String phoneNumber, String password, double balance) {
         this.name = name;
-//        this.carNumberPlate = carNumberPlate;
         this.phoneNumber = phoneNumber;
         this.password = password;
-//        this.washCardBalance= washCardBalance;
 
         // create washCard object
         washCard = new WashCard(carPlateNum, balance);
