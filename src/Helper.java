@@ -7,9 +7,9 @@ public class Helper {
     /** Helper method for changing the balance restricting user from
      * inputing amount less than min and higher than max
      *
-     * @attr msg - What message should be displayed on the screen
-     * @attr min - minimum allowed value
-     * @attr max - maximum allowed value
+     * @param msg - specify message that will be displayed on the screen - String
+     * @param min - minimum allowed value - int
+     * @param max - maximum allowed value - int
      *
      * */
     public static double chargeBalance(String msg, int min, int max) {
@@ -30,6 +30,10 @@ public class Helper {
         return amount;
     }
 
+    /** Helper method that collects user option
+     * @param min - minimal allowed option - int
+     * @param max - maximal allowed option - int
+     * */
     public static int chooseOption(int min, int max) {
         System.out.print("Choose option: ");
 

@@ -160,9 +160,11 @@ public class Main {
 
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int hourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
+                int price;
 
                 System.out.println("=== Wash Car ===");
 
+                // show wash car options
                 WashType.showOptions();
 
                 int washOption = Helper.chooseOption(1, 3);
@@ -200,7 +202,7 @@ public class Main {
 
                 break;
             case 4:
-                // Generating statistic: aka pritning all stats to the console
+                // Generating statistic
                 System.out.println("=== Statistics ===");
                 System.out.println();
                 for (Statistic stat: statistics) {
