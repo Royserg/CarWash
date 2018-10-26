@@ -5,7 +5,7 @@ public class Helper {
     private static Scanner scanner = new Scanner(System.in);
 
     /** Helper method for changing the balance restricting user from
-     * inputing amount less than min and higher than max
+     * inputting amount less than min and higher than max
      *
      * @param msg - specify message that will be displayed on the screen - String
      * @param min - minimum allowed value - int

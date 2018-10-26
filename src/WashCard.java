@@ -7,16 +7,20 @@ public class WashCard {
         this.balance = balance;
     }
 
-    // getters
+    /** Getter
+     * @return car plate number  */
     public String getCarPlateNum() {
         return carPlateNum;
     }
 
+    /** Getter
+     * @return balance stred on washCard */
     public double getBalance() {
         return balance;
     }
 
-    // setters
+    /** Change balance stored on washCard
+     * @param delta - value that balance will be changed by */
     public void changeBalance(double delta) {
         this.balance += delta;
     }

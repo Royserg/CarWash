@@ -4,7 +4,6 @@ public class Customer {
     private String phoneNumber;
     private String password;
     public boolean isAdmin = false;
-
     public WashCard washCard;
 
     public Customer (String name, String carPlateNum, String phoneNumber, String password, double balance) {
@@ -15,7 +14,6 @@ public class Customer {
         // create washCard object
         washCard = new WashCard(carPlateNum, balance);
     }
-
     public Customer (String name, String carPlateNum, String phoneNumber, String password, double balance, boolean admin) {
         this(name, carPlateNum, phoneNumber, password, balance);
         this.isAdmin = admin;

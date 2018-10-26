@@ -25,7 +25,11 @@ public class Main {
     }
 
 
-    /** Method that populates program's ArrayList with dummy data */
+    /**
+     * Method that populates program's ArrayList with dummy data
+     * Add 5 Customers into customers ArrayList
+     * Add 1 Statistic into statistic ArrayList
+     * */
     private static void populateData() {
         customers.add(new Customer("Michael", "MC6969", "+45 231","1212", 250));
         customers.add(new Customer("Jakub", "JA9991", "+45 123","0000", 600));
@@ -36,7 +40,10 @@ public class Main {
         statistics.add(new Statistic("Standard", new Date(), 150.0));
     }
 
-    /** Print Main screen with available options */
+    /**
+     * Shows Main screen with available options
+     * Then waits until user chooses an option
+     * */
     private static void showMainScreen() {
         System.out.println("==== SupremeWash ====");
         System.out.println("1. Register a New User");
@@ -50,7 +57,11 @@ public class Main {
 
     }
 
-    /** Print Login screen  */
+    /**
+     * Show Login screen
+     * Ask user for Car Plate Number
+     * Ask user for password
+     * */
     private static void showLoginScreen() {
         System.out.println("==== Login ====");
 
@@ -89,7 +100,10 @@ public class Main {
         showLoginScreen();
     }
 
-    /** Print Registration screen */
+    /**
+     * Show Registration screen
+     * Ask user for details in order to create a new Customer object
+     * */
     private static void showRegistrationScreen() {
         double amount;
         System.out.println("==== Registration ====");
@@ -115,7 +129,10 @@ public class Main {
         showMainScreen();
     }
 
-    /** Print User screen */
+    /** Show User screen
+     * show list of available options for the logged in user of the system
+     * if user is an admin, show additionally generating statistics
+     * */
     private static void showUserScreen() {
         String[] options = {"Exit", "Check Balance", "Top-up Balance", "Wash Car", "Generate Statistics "};
 

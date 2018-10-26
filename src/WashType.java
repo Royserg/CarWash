@@ -1,9 +1,14 @@
 public class WashType {
 
-    public static double economyPrice = 50.0;
-    public static double standardPrice = 80.0;
-    public static double deluxePrice = 120.0;
+    private static double economyPrice = 50.0;
+    private static double standardPrice = 80.0;
+    private static double deluxePrice = 120.0;
 
+    /**
+     * Pull prices of all wash types, reduced by 20% if applicable
+     * @param discount - true if it is discounted period, false otherwise
+     * @return array of doubles - prices of Washes
+     * */
     public static double[] getPrices(boolean discount) {
         double[] prices = new double[3];
 
@@ -15,7 +20,10 @@ public class WashType {
         return prices;
     }
 
-
+    /** Give back the name of the particular washType
+     * @param option - integer from 1 to 3
+     * @return name of the washType
+     * */
     public static String getName(int option) {
         switch (option){
             case 1:
