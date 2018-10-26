@@ -7,8 +7,6 @@ public class Customer {
 
     public WashCard washCard;
 
-    public Customer() {}
-
     public Customer (String name, String carPlateNum, String phoneNumber, String password, double balance) {
         this.name = name;
         this.phoneNumber = phoneNumber;

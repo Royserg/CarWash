@@ -191,18 +191,23 @@ public class Main {
                     statistics.add(stat);
 
                     // print receipt
-                    System.out.print("Do you want a receipt?: [y/N]");
+                    System.out.print("Do you want a receipt?: [y/N] ");
 
                     String decision = scanner.nextLine();
 
                     if (decision.equals("y")) {
+                        System.out.println();
+                        System.out.println();
                         System.out.println("=== Your Receipt =========");
                         System.out.println(stat);
                         System.out.println("==============================");
                         System.out.println();
+                        System.out.println();
                     }
 
                     System.out.println("=== Car ready - sending SMS ===");
+                    System.out.println();
+                    System.out.println();
                     showUserScreen();
                 }
 
@@ -216,12 +221,14 @@ public class Main {
                 }
                 System.out.println();
 
-                System.out.print("Print statistics: [y/N]");
+                System.out.print("Print statistics: [y/N] ");
                 String ownerDecision = scanner.nextLine();
 
                 if (ownerDecision.equals("y")) {
                     System.out.println("==== Printing Statistics ====");
                     System.out.println("==== Thank you! ====");
+                    System.out.println();
+                    System.out.println();
                 }
 
                 showUserScreen();
