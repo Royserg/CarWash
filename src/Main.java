@@ -21,9 +21,7 @@ public class Main {
         // populate ArrayList with data
         populateData();
         // show main screen
-//        showMainScreen();
-        currentCustomer = customers.get(3);
-        showUserScreen();
+        showMainScreen();
     }
 
 
@@ -135,6 +133,9 @@ public class Main {
 
         switch(option) {
             case 0:
+                System.out.println("=== Successfully logged out ===");
+                System.out.println();
+                System.out.println();
                 showMainScreen();
                 break;
             case 1:
@@ -201,8 +202,6 @@ public class Main {
                         System.out.println();
                     }
 
-                    System.out.println("=== Washu Washu - Car will be clean ===");
-                    System.out.println("===    Washu Washu Washu    ===");
                     System.out.println("=== Car ready - sending SMS ===");
                     showUserScreen();
                 }
