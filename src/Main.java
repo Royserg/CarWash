@@ -16,7 +16,6 @@ public class Main {
     private static Customer currentCustomer;
 
 
-    // === main ===
     public static void main(String[] args) {
         // populate ArrayList with data
         populateData();
@@ -119,7 +118,7 @@ public class Main {
         System.out.println("=== Payment approved! ===");
 
         // create a new Customer and add to the arrayList
-        Customer newCustomer = new Customer(newCustomerInfo[0], newCustomerInfo[1], newCustomerInfo[2], newCustomerInfo[3], amount);
+        Customer newCustomer = new Customer(newCustomerInfo[0], newCustomerInfo[1].toUpperCase(), newCustomerInfo[2], newCustomerInfo[3], amount);
 
         System.out.println("=== Successfully registered ===");
         // save new Customer into customers ArrayList
